@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis A. Perez | Full Stack Developer</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/layouts/base.css">
+    <link rel="stylesheet" href="styles/layouts/animations.css">
+    <link rel="stylesheet" href="styles/components/navigation.css">
+    <link rel="stylesheet" href="styles/components/hero.css">
+    <link rel="stylesheet" href="styles/components/cosmic-projects.css">
+    <link rel="stylesheet" href="styles/components/about.css">
+    <link rel="stylesheet" href="styles/components/credentials.css">
+    <link rel="stylesheet" href="styles/components/contact.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/components/loading.css">
+    <link rel="stylesheet" href="styles/layouts/responsive.css">
+</head>
+<body data-theme="dark">
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+<div class="loading-screen" id="loadingScreen">
+    <div class="cosmic-loader">
+        <div class="planet-core"></div>
+        <div class="planet"></div>
+        
+        <div class="orbit">
+            <div class="orbiting-moon"></div>
+        </div>
+        <div class="orbit">
+            <div class="orbiting-moon"></div>
+        </div>
+        <div class="orbit">
+            <div class="orbiting-moon"></div>
+        </div>
+        
+        <div class="stars">
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+        </div>
+    </div>
+    
+    <p class="loading-text">Initializing Data...</p>
+    <div class="loading-progress"></div>
+</div>
+    <!-- Background -->
+    <div class="galactic-universe">
+        <div class="cosmic-bg"></div>
+        <div class="stars-bg" id="starsBg"></div>
+        <div class="shooting-stars"></div>
+        <div class="nebula-overlay"></div>
+        <div class="galaxy-clusters"></div>
+        <div class="cosmic-dust"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                Web Portfolio
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="#about" class="nav-link"><i class="fas fa-user-astronaut"></i> About</a></li>
+                <li><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Credentials</a></li>
+                <li><a href="#contact" class="nav-link"><i class="fas fa-satellite"></i> Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge animate-on-scroll" data-animation="slide-down">
+                <i class="fas fa-graduation-cap"></i> Computer Science Student
+            </div>
+            
+            <div class="profile-container animate-on-scroll" data-animation="zoom-in">
+                <div class="cosmic-profile">
+                    <div class="profile-orbit">
+                        <div class="orbiting-tech">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="orbiting-tech">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <div class="orbiting-tech">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                    </div>
+                    <div class="profile-image">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="animate-on-scroll" data-animation="fade-in-up">Genesis A. Perez</h1>
+            <div class="typing-text" id="typingText"></div>
+            <p class="description animate-on-scroll" data-animation="fade-in-up" data-delay="200">
+                Full-stack developer specializing in scalable web systems and intuitive user experiences. 
+Eager to apply my technical skills in a real-world OJT environment and contribute to meaningful projects.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary animate-on-scroll" data-animation="slide-left">
+                    <i class="fas fa-rocket"></i> Explore My Work
+                </a>
+                <a href="#contact" class="btn btn-secondary animate-on-scroll" data-animation="slide-right">
+                    <i class="fas fa-phone"></i> Contact Me
+                </a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" aria-label="GitHub" class="animate-on-scroll" data-animation="fade-in" data-delay="100">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" aria-label="LinkedIn" class="animate-on-scroll" data-animation="fade-in" data-delay="200">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" aria-label="Twitter" class="animate-on-scroll" data-animation="fade-in" data-delay="300">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" aria-label="Email" class="animate-on-scroll" data-animation="fade-in" data-delay="400">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator animate-on-scroll" data-animation="bounce">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+<section id="projects" class="cosmic-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="animate-on-scroll" data-animation="fade-in-up">Software Projects</h2>
+            <p class="animate-on-scroll" data-animation="fade-in-up" data-delay="100">Software projects that I have developed</p>
+        </div>
+        
+        <!-- Project Filters -->
+        <div class="cosmic-filters animate-on-scroll" data-animation="fade-in-down">
+            <div class="filter-orbits">
+                <div class="orbit-ring"></div>
+                <div class="orbit-ring"></div>
+                <div class="orbit-ring"></div>
+            </div>
+            <div class="filter-buttons">
+                <button class="cosmic-filter active" data-filter="all">
+                    <span class="filter-icon">🌌</span>
+                    All Categories
+                </button>
+                <button class="cosmic-filter" data-filter="fullstack">
+                    <span class="filter-icon">⚡</span>
+                    Full Stack Projects
+                </button>
+                <button class="cosmic-filter" data-filter="frontend">
+                    <span class="filter-icon">🎨</span>
+                    Frontend Projects
+                </button>
+                <button class="cosmic-filter" data-filter="backend">
+                    <span class="filter-icon">🔧</span>
+                    Backend Projects
+                </button>
+                <button class="cosmic-filter" data-filter="mobile">
+                    <span class="filter-icon">📱</span>
+                    Mobile Applications
+                </button>
+            </div>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="cosmic-projects-grid" id="cosmicProjectsGrid">
+            
+            <div class="project-loading">
+                <div class="loading-pulsar"></div>
+            </div>
+        </div>
+
+        <!-- Project View -->
+        <div class="constellation-view" id="constellationView">
+            <div class="constellation-container">
+                <div class="constellation-lines"></div>
+                <div class="project-constellations" id="projectConstellations">
+                </div>
+            </div>
+            <button class="close-constellation" id="closeConstellation">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+<section id="about" class="cosmic-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="animate-on-scroll" data-animation="fade-in-up">Brief Introduction</h2>
+            <p class="animate-on-scroll" data-animation="fade-in-up" data-delay="100">About the developer</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-column">
+                <div class="story-card animate-on-scroll" data-animation="fade-in-right">
+                    <div class="card-header">
+                        <i class="fas fa-user-astronaut"></i>
+                        <h3>About Me</h3>
+                    </div>
+                    <div class="story-content">
+                        <p>
+                            I'm a Computer Science student navigating the rapidly evolving landscape of web and mobile development. 
+                            I enjoy building functional applications and exploring new technologies to solve real-world problems.
+                        </p>
+                        <p>
+                            Throughout my academic journey, I've developed a strong foundation in programming and 
+                            software development. I'm eager to apply my skills in a professional environment and 
+                            contribute to meaningful projects that make a difference.
+                        </p>
+                        <p>
+                            Currently seeking an OJT opportunity where I can grow as a developer, learn from experienced 
+                            professionals, and make a positive impact. Let's create something stellar together!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="focus-card animate-on-scroll" data-animation="fade-in-right" data-delay="100">
+                    <div class="card-header">
+                        <i class="fas fa-compass"></i>
+                        <h3>Current Mission</h3>
+                    </div>
+                    <div class="focus-content">
+                        <div class="focus-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Completing Computer Science Degree</span>
+                        </div>
+                        <div class="focus-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Seeking OJT/Internship Opportunities</span>
+                        </div>
+                        <div class="focus-item">
+                            <i class="fas fa-server"></i>
+                            <span>Building Web Application Projects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-column">
+                <div class="skills-section">
+                    <h3 class="animate-on-scroll" data-animation="fade-in-left">Tech Stack</h3>
+                    
+                    <div class="skill-category animate-on-scroll" data-animation="slide-up">
+                        <h4><i class="fas fa-paint-brush"></i> Frontend Development</h4>
+                        <div class="skill-items">
+                            <span class="skill-item"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="skill-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="skill-item"><i class="fab fa-js"></i> JavaScript</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category animate-on-scroll" data-animation="slide-up" data-delay="100">
+                        <h4><i class="fas fa-server"></i> Backend & Databases</h4>
+                        <div class="skill-items">
+                            <span class="skill-item"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="skill-item"><i class="fas fa-bolt"></i> Express.js</span>
+                            <span class="fab fa-php"><i class="fas fa-php"></i> PHP</span>
+                            <span class="skill-item"><i class="fas fa-database"></i> MySQL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category animate-on-scroll" data-animation="slide-up" data-delay="200">
+                        <h4><i class="fas fa-mobile-alt"></i> Mobile & Tools</h4>
+                        <div class="skill-items">
+                            <span class="skill-item"><i class="fab fa-flutter"></i> Flutter</span>
+                            <span class="skill-item"><i class="fab fa-git-alt"></i> Git</span>
+                            <span class="skill-item"><i class="fas fa-code"></i> VS Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="compact-cta animate-on-scroll" data-animation="zoom-in">
+            <div class="cta-transmission">
+                <div class="transmission-signal">
+                    <div class="signal-pulse"></div>
+                    <div class="signal-core">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                </div>
+                
+                <div class="cta-message">
+                    <h3>Ready to Collaborate?</h3>
+                    <p>Let's build something amazing together</p>
+                </div>
+                
+                <div class="cta-action">
+                    <a href="#contact" class="btn btn-primary transmit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Start Together
+                    </a>
+                </div>
+            </div>
+            
+            <div class="cta-glow"></div>
+        </div>
+    </div>
+</section>
+
+    <!-- Education Section -->
+    <section id="education" class="cosmic-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="animate-on-scroll" data-animation="fade-in-up">Flight Path</h2>
+                <p class="animate-on-scroll" data-animation="fade-in-up" data-delay="100">
+                    My Academic Credentials and Certifications
+                </p>
+            </div>
+            <div class="education-timeline">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<section id="contact" class="cosmic-section">
+    <div class="section-container">
+        <div class="contact-container">
+            <div class="section-header">
+                <h2 class="animate-on-scroll" data-animation="fade-in-up">Establish Connection</h2>
+                <p class="animate-on-scroll" data-animation="fade-in-up" data-delay="100">Ready to launch a project together?</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-cta-container animate-on-scroll" data-animation="zoom-in">
+                    <div class="cta-card">
+                        <div class="cta-icon">
+                            <i class="fas fa-satellite-dish"></i>
+                            <div class="pulse-ring"></div>
+                        </div>
+                        <h3>Direct Communication</h3>
+                        <p>Send your message directly to my communication hub</p>
+                        <a href="mailto:zerepgen@gmail.com" 
+                           class="btn btn-primary cta-button">
+                            <i class="fas fa-paper-plane"></i>
+                            Send an Email
+                        </a>
+                        <div class="cta-note">
+                            <i class="fas fa-info-circle"></i>
+                            Opens your default email client
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="contact-info-container animate-on-scroll" data-animation="fade-in-up">
+                    <div class="contact-info-grid">
+                        <!-- Email -->
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Contact Me</h4>
+                                <span>+639466339879</span>
+                                <a href="mailto:zerepgen@gmail.com" class="contact-link">
+                                    zerepgen@gmail.com
+                                </a>
+                                <p>For OJT inquiries and project discussions</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Location -->
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Address</h4>
+                                <span>Candelaria, Quezon, Region IV-A</span>
+                                <p>Available for remote opportunities</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Response Time -->
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Usual Response</h4>
+                                <span>Within 24 Hours</span>
+                                <p>Quick response guaranteed</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Availability -->
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Mission Status</h4>
+                                <span>Seeking OJT Opportunities</span>
+                                <p>Available for internship programs</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="social-constellation">
+                        <h4>Connect Across the Network</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="GitHub" onclick="event.preventDefault()">
+                                <div class="social-orb">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <span class="social-tooltip">GitHub</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn" onclick="event.preventDefault()">
+                                <div class="social-orb">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </div>
+                                <span class="social-tooltip">LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter" onclick="event.preventDefault()">
+                                <div class="social-orb">
+                                    <i class="fab fa-twitter"></i>
+                                </div>
+                                <span class="social-tooltip">Twitter</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram" onclick="event.preventDefault()">
+                                <div class="social-orb">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                <span class="social-tooltip">Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Background Elements -->
+    <div class="contact-bg-elements">
+        <div class="floating-asteroid asteroid-1"></div>
+        <div class="floating-asteroid asteroid-2"></div>
+        <div class="floating-asteroid asteroid-3"></div>
+        <div class="pulsar-core"></div>
+        <div class="transmission-waves"></div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home"><i class="fas fa-home"></i> Home</a>
+                <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
+                <a href="#about"><i class="fas fa-user-astronaut"></i> About</a>
+                <a href="#education"><i class="fas fa-graduation-cap"></i> Credentials</a>
+                <a href="#contact"><i class="fas fa-satellite"></i> Contact</a>
+            </div>
+            <p>© 2025 Genesis A. Perez.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

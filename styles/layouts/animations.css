@@ -1,0 +1,227 @@
+/* Animation Classes */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation Types */
+[data-animation="fade-in"] {
+    transform: translateY(0);
+}
+
+[data-animation="fade-in-up"] {
+    transform: translateY(50px);
+}
+
+[data-animation="fade-in-down"] {
+    transform: translateY(-50px);
+}
+
+[data-animation="fade-in-left"] {
+    transform: translateX(-50px);
+}
+
+[data-animation="fade-in-right"] {
+    transform: translateX(50px);
+}
+
+[data-animation="slide-up"] {
+    transform: translateY(100px);
+}
+
+[data-animation="slide-down"] {
+    transform: translateY(-100px);
+}
+
+[data-animation="slide-left"] {
+    transform: translateX(100px);
+}
+
+[data-animation="slide-right"] {
+    transform: translateX(-100px);
+}
+
+[data-animation="zoom-in"] {
+    transform: scale(0.8);
+}
+
+[data-animation="zoom-out"] {
+    transform: scale(1.2);
+}
+
+[data-animation="flip-in"] {
+    transform: perspective(1000px) rotateX(90deg);
+}
+
+[data-animation="bounce"] {
+    animation: bounce 2s infinite;
+    opacity: 1;
+}
+
+/* Keyframe Animations */
+@keyframes cosmicPulse {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+}
+
+@keyframes starDrift {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(-500px) translateY(-250px); }
+}
+
+@keyframes nebulaFloat {
+    0%, 100% { transform: translateX(0) translateY(0) scale(1); }
+    33% { transform: translateX(20px) translateY(10px) scale(1.02); }
+    66% { transform: translateX(-10px) translateY(20px) scale(0.98); }
+}
+
+@keyframes galaxyRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes dustFloat {
+    0%, 100% { opacity: 0.3; transform: translateX(0); }
+    50% { opacity: 0.6; transform: translateX(50px); }
+}
+
+@keyframes rotatePlanet {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes rotateOrbit {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes counterRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+@keyframes shootingStar {
+    0% {
+        transform: translateX(-100vw) translateY(-100vh) rotate(45deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    20% {
+        transform: translateX(100vw) translateY(100vh) rotate(45deg);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes morph {
+    0%, 100% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40%/50% 60% 30% 60%; }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes starTwinkle {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.2);
+    }
+}
+
+@keyframes cosmicFloat {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.1;
+    }
+    25% { 
+        transform: translate(20px, -15px) rotate(90deg) scale(1.1);
+        opacity: 0.3;
+    }
+    50% { 
+        transform: translate(-10px, -25px) rotate(180deg) scale(0.9);
+        opacity: 0.2;
+    }
+    75% { 
+        transform: translate(-20px, -10px) rotate(270deg) scale(1.05);
+        opacity: 0.25;
+    }
+}
+
+@keyframes sparkleTwinkle {
+    0% { 
+        opacity: 0; 
+        transform: scale(0); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.5); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(0); 
+    }
+}
+
+@keyframes cosmicRainbow {
+    0% { 
+        filter: hue-rotate(0deg) brightness(1.2);
+    }
+    100% { 
+        filter: hue-rotate(360deg) brightness(1.2);
+    }
+}
+
+@keyframes supernova {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 200vmax;
+        height: 200vmax;
+        opacity: 0;
+    }
+}
