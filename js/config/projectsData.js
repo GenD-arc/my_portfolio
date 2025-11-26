@@ -29,7 +29,7 @@ export const projectsData = [
         tags: ["HTML5", "CSS3", "JavaScript", "Responsive"],
         github: "#",
         demo: "#",
-        link: "#",
+        link: "",
         category: "frontend"
     },
 ];
