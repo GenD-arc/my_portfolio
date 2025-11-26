@@ -3,6 +3,7 @@ import { projectsData } from '../config/projectsData.js';
 
 let currentProjects = [];
 let isMobile = false;
+let animationTimeout = null;
 
 export function initializeCosmicProjects() {
     console.log('🔄 Initializing cosmic projects...');
@@ -43,7 +44,7 @@ function handleResize() {
     }
 }
 
-function renderCosmicProjects(projects = projectsData) {
+function renderCosmicProjects(projects = projectsData, animate = true) {
     const grid = document.getElementById('cosmicProjectsGrid');
     
     if (!grid) {
@@ -53,12 +54,15 @@ function renderCosmicProjects(projects = projectsData) {
 
     console.log(`🎨 Rendering ${projects.length} projects...`);
     
-    // Add loading state
+    // Clear any existing animation timeouts
+    if (animationTimeout) {
+        clearTimeout(animationTimeout);
+    }
+    
+    // Add loading state with animation
     grid.innerHTML = '<div class="project-loading"><div class="loading-pulsar"></div></div>';
     
     setTimeout(() => {
-        grid.innerHTML = '';
-
         if (projects.length === 0) {
             grid.innerHTML = `
                 <div class="projects-empty-state">
@@ -72,17 +76,55 @@ function renderCosmicProjects(projects = projectsData) {
 
         currentProjects = projects;
 
-        projects.forEach((project, index) => {
-            const projectCard = createCosmicProjectCard(project, index);
-            grid.appendChild(projectCard);
-            
-            // Add staggered animation
-            setTimeout(() => {
-                projectCard.style.opacity = '1';
-                projectCard.style.transform = 'translateY(0)';
-            }, index * 100);
-        });
+        // Start exit animation if there are existing cards
+        const existingCards = grid.querySelectorAll('.cosmic-project-card');
+        if (existingCards.length > 0 && animate) {
+            existingCards.forEach((card, index) => {
+                card.classList.remove('entry-animation');
+                card.classList.add('exit-animation');
+            });
+
+            // Wait for exit animation to complete before adding new cards
+            animationTimeout = setTimeout(() => {
+                createNewProjectCards(grid, projects, animate);
+            }, 600); // Match the longest exit animation time
+        } else {
+            createNewProjectCards(grid, projects, animate);
+        }
     }, 300);
+}
+
+function createNewProjectCards(grid, projects, animate) {
+    grid.innerHTML = '';
+
+    projects.forEach((project, index) => {
+        const projectCard = createCosmicProjectCard(project, index);
+        grid.appendChild(projectCard);
+        
+        // Set initial state for animation
+        if (animate) {
+            // Don't set any inline styles - let CSS handle the initial state
+            // Add entry animation after a delay
+            setTimeout(() => {
+                projectCard.classList.add('entry-animation');
+            }, 100 + (index * 100)); // Stagger the animations
+        } else {
+            // For immediate display (initial load), just ensure it's visible
+            projectCard.style.opacity = '1';
+            projectCard.style.transform = 'none';
+            projectCard.style.filter = 'none';
+        }
+    });
+
+    // Clean up animation classes after completion
+    animationTimeout = setTimeout(() => {
+        const cards = grid.querySelectorAll('.cosmic-project-card');
+        cards.forEach(card => {
+            card.classList.remove('entry-animation');
+            // Reset any animation properties
+            card.style.animation = '';
+        });
+    }, 1000 + (projects.length * 100));
 }
 
 function createCosmicProjectCard(project, index) {
@@ -91,10 +133,8 @@ function createCosmicProjectCard(project, index) {
     card.setAttribute('data-category', project.category);
     card.setAttribute('data-project-id', project.id);
     
-    // Initial state for animation
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+    // REMOVE all inline style settings - let CSS handle animations
+    // The initial state is handled by the CSS animation starting point
 
     const tagIcons = {
         'React': 'fab fa-react',
@@ -215,11 +255,16 @@ function initializeCosmicFilters() {
         filter.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // Update active state
-            filters.forEach(f => f.classList.remove('active'));
-            filter.classList.add('active');
+            // Update active state with animation
+            filters.forEach(f => {
+                f.classList.remove('active');
+                f.style.transform = 'translateY(0)';
+            });
             
-            // Filter projects
+            filter.classList.add('active');
+            filter.style.transform = 'translateY(-3px)';
+            
+            // Filter projects with animation
             const category = filter.getAttribute('data-filter');
             console.log(`🔍 Filtering by: ${category}`);
             filterCosmicProjects(category);
@@ -234,13 +279,14 @@ function filterCosmicProjects(category) {
     
     console.log(`📊 Showing ${filteredProjects.length} projects for category: ${category}`);
     
-    // Add loading transition
+    // Add loading transition to grid
     const grid = document.getElementById('cosmicProjectsGrid');
-    grid.style.opacity = '0.5';
+    grid.style.opacity = '0.7';
     grid.style.transition = 'opacity 0.3s ease';
     
+    // Render with animations
     setTimeout(() => {
-        renderCosmicProjects(filteredProjects);
+        renderCosmicProjects(filteredProjects, true);
         grid.style.opacity = '1';
     }, 300);
 }
@@ -258,7 +304,13 @@ function initializeProjectInteractions() {
             
             if (project) {
                 console.log(`🔍 Opening details for: ${project.title}`);
-                // redirect the user to the website demo
+                // Add animation to button
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                    window.open(project.link, '_blank');
+                }, 150);
+                
             }
         }
     });
@@ -294,6 +346,13 @@ function initializeProjectInteractions() {
 
 function handleTouchStart(e) {
     // Add touch-specific interactions here if needed
+    if (e.target.closest('.cosmic-project-card')) {
+        const card = e.target.closest('.cosmic-project-card');
+        card.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            card.style.transform = '';
+        }, 150);
+    }
 }
 
 function getTagIcon(tag) {
@@ -327,6 +386,8 @@ export function initialize3DProjectEffects() {
     
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
+            if (card.classList.contains('exit-animation')) return;
+            
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
